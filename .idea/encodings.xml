@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/controller/IndexController.class.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/Action.class.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/App.class.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/Db.class.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/Error.class.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/View.class.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/common.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/IndexModule.class.php" charset="UTF-8" />
+  </component>
+</project>
