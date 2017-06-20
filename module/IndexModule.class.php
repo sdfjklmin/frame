@@ -3,7 +3,8 @@ class IndexModule
 {
     public function getM()
     {
-       return D('BUser')->select() ;
+        $d = D('BUser')->field('id,name,age')->where('id=9')->select();
+        pr($d,D('BUser')->endSql());
     }
 
     public function index()

@@ -1,6 +1,5 @@
 <?php
-require_once('ActionController.class.php');
-class IndexController extends ActionController
+class IndexController extends Action
 {
     public function index()
     {
@@ -19,6 +18,7 @@ class IndexController extends ActionController
     public function getM()
     {
         $info = module('Index')->getM();
-        $this->assign('info',$info);
+//        $this->dis('Test/test');
+
     }
 }

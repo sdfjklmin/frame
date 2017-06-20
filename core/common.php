@@ -66,15 +66,22 @@ function require_cache($filename)
 # 数据库实例化
 function D($mod='')
 {
-    # 数据类
-    require_cache(CORE_PATH.'Db.class.php');
     # 默认判断
     if(empty($mod)) {
-        return new Db;
+        return new Model;
     }
+  /* 这里不能用静态,每次创建对象的
+    时候可能会去改变对应的属性
+    static $_mod = [] ;
+    if(isset($_mod[$mod])) {
+        return $_mod[$mod] ;
+    }*/
+
     # 转换字符串格式
-    $mod = strFormat($mod) ;
-    return new Db($mod);
+    $mod2 = strFormat($mod) ;
+    $rMod =  new Model($mod2);
+    // $_mod[$mod] = $rMod ;
+    return $rMod ;
 }
 
 # 字符串转换 BUserTest b_user_test
@@ -93,5 +100,18 @@ function strFormat($name){
         }
     }
     return implode('',$temp_array);
+}
+
+# 获取系统参数
+
+function C($a)
+{
+    if(is_string($a)) {
+
+    }
+
+    if(is_array($a)) {
+
+    }
 }
 

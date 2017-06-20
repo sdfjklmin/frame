@@ -4,7 +4,6 @@ define('BASE_URL',__DIR__) ;
 define('VIEWS','/view');
 # 配置引入
 require 'core/App.class.php' ;
-\core\App::run();
 
 
 

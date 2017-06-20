@@ -1,9 +1,10 @@
 <?php
 
-$DB = array(
-		'TYPE'	=>	'mysql' ,
-		'HOST'	=>	'192.168.5.4',
-		'USER'	=>	'root',
-		'PWD'	=>	'123456',
-		'PORT'	=>	'3306',
-	 );
+return [
+	'DB_TYPE'  =>  'mysql' ,
+	'DB_HOST'  =>  'localhost',
+	'DB_NAME'    =>  'min_test',
+	'DB_ROOT'  =>  'root',
+	'DB_PWD'   =>  '123456',
+	'DB_FIX'   =>	'm_' ,
+] ;

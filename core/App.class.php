@@ -1,18 +1,19 @@
 <?php
 namespace core ;
-# 引入公共方法
-require_once('/core/common.php');
+
 class App
 {
 
 	# 执行方法
 	public static function run()
 	{
-		self::setCharset();
-		self::setConst() ;
-		self::setError();
-		self::iniUrl();
-		self::disController();
+		self::setCharset();		# 字符
+		self::setConst() ;		# 常量
+		self::buildLib() ;		# 引入文件
+		self::setError();		# 错误
+		self::iniUrl();			# url
+		self::disController();	# 控制器
+
 	}
 
 	# 字符设置
@@ -39,13 +40,11 @@ class App
 	# 设置错误信息
 	private static function setError()
 	{
-
 	}
 
 	# 解析url
 	private static function iniUrl()
 	{
-
 		# 参数模式
 		$plat = isset($_REQUEST['p']) ? trim($_REQUEST['p']) : 'Admin';
 		$module = isset($_REQUEST['c']) ? ucfirst(strtolower($_REQUEST['c'])) : 'Index';
@@ -71,4 +70,34 @@ class App
 		$module = new $module;
 		$module->$action();
 	}
+
+	# 引入项目所需要的文件
+	private static function buildLib()
+	{
+		# 公共方法
+		require_once(CORE_PATH.'/common.php');
+		# 系统类
+		$list = [
+			CORE_PATH.'/Action.class.php' ,
+			CORE_PATH.'/Model.class.php' ,
+			CORE_PATH.'/Db.class.php' ,
+			CORE_PATH.'/Error.class.php' ,
+			CORE_PATH.'/Log.class.php' ,
+			CORE_PATH.'/View.class.php' ,
+		] ;
+		foreach($list as $key=>$value) {
+			if(is_file($value)) {
+				require_once($value);
+			}
+		}
+		# 连接配置
+		$db_conf = require_once(APP_PATH.'config.php');
+		if(!empty($db_conf)) {
+			define('DB_CONF',json_encode($db_conf,true)) ;
+		}
+
+	}
 }
+
+# 运行入口
+App::run() ;
